@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  title: Cooking API
+  description: This is a Cooking API
+  contact:
+    email: yoshikai@qunasys.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/QunaSys/CookingApp/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: recipe
+  description: Recipe
+paths:
+  /recipes:
+    get:
+      tags:
+      - recipe
+      summary: recipe list
+      description: |
+        recipes
+      operationId: listRecipe
+      responses:
+        "200":
+          description: recipe list
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                - id: 0
+                  name: Onigiri
+                  cost: 1000
+                  difficulty: Easy
+                  createAt: 2022-08-28T09:12:33.001Z
+                - id: 1
+                  name: Cutlet sandwich
+                  cost: 1000
+                  difficulty: Normal
+                  createAt: 2022-09-01T09:12:33.001Z
+                - id: 2
+                  name: Onigiri 2
+                  cost: 100
+                  difficulty: Easy
+                  createAt: 2022-09-02T09:12:33.001Z
+                - id: 3
+                  name: Super Onigiri 2
+                  cost: 1000
+                  difficulty: Hard
+                  createAt: 2022-09-03T09:12:33.001Z
+                items:
+                  $ref: '#/components/schemas/RecipeItem'
+                x-content-type: application/json
+        "400":
+          description: bad input parameter
+      x-swagger-router-controller: Recipe
+    post:
+      tags:
+      - recipe
+      summary: adds a recipe item
+      description: Adds an item to the system
+      operationId: addRecipe
+      requestBody:
+        description: Recipe item to add
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeItem'
+      responses:
+        "201":
+          description: item created
+        "400":
+          description: "invalid input, object invalid"
+        "409":
+          description: an existing item already exists
+      x-swagger-router-controller: Recipe
+components:
+  schemas:
+    RecipeItem:
+      required:
+      - cost
+      - id
+      - name
+      - recipe
+      type: object
+      properties:
+        id:
+          type: string
+          format: number
+          example: "1"
+        name:
+          type: string
+          example: Onigiri
+        cost:
+          type: number
+          example: 1000
+        difficulty:
+          type: string
+          enum:
+          - Easy
+          - Normal
+          - Ha
+        createAt:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
