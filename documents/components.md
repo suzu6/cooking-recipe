@@ -22,7 +22,7 @@
       - `index.tsx`
       - `recipeDetailPresenter.tsx`
       - `recipeDetailContainer.tsx`
-  - `/shard`: 共有する
+  - `/shared`: 共有する
     - `/components`: 共通コンポーネント
       - `CotentsTitle.tsx`: コンテンツタイトル
       - `Breadcrumbs.tsx`: パンくずリスト
