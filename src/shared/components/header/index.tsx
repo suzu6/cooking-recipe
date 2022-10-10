@@ -1,32 +1,27 @@
-import * as React from 'react';
-import { Button, Typography, Toolbar, AppBar, Link } from '@mui/material';
-import styles from './Header.module.css';
-import { useRouter } from 'next/router';
+import { Button, Typography, Toolbar, AppBar } from '@mui/material'
+import { useRouter } from 'next/router'
+import * as React from 'react'
+import styles from './Header.module.css'
 
 export default function Header() {
-  const router = useRouter();
+  const router = useRouter()
 
   const clickLogo = () => {
-    router.push('/');
-  };
+    router.push('/')
+  }
 
   return (
     <AppBar
-      position="fixed"
+      position='fixed'
       className={styles.header}
       sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
     >
       <Toolbar>
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{ flexGrow: 1 }}
-          onClick={clickLogo}
-        >
+        <Typography variant='h6' component='div' sx={{ flexGrow: 1 }} onClick={clickLogo}>
           COOKING APP
         </Typography>
-        <Button color="inherit">Login</Button>
+        <Button color='inherit'>Login</Button>
       </Toolbar>
     </AppBar>
-  );
+  )
 }

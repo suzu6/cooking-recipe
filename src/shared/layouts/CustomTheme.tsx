@@ -1,7 +1,7 @@
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material'
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export function CustomTheme({ children }: LayoutProps) {
@@ -30,11 +30,11 @@ export function CustomTheme({ children }: LayoutProps) {
         main: '#F96A93',
       },
     },
-  });
+  })
 
   return (
     <>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </>
-  );
+  )
 }

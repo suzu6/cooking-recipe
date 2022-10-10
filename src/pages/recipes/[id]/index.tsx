@@ -1,5 +1,5 @@
-import type { NextPage } from 'next';
-import { DefaultLayout } from '../../../shared/layouts/DefaultLayout';
+import type { NextPage } from 'next'
+import { DefaultLayout } from '../../../shared/layouts/DefaultLayout'
 
 const Recipe: NextPage = () => {
   return (
@@ -8,7 +8,7 @@ const Recipe: NextPage = () => {
         <div>Recipe</div>
       </DefaultLayout>
     </>
-  );
-};
+  )
+}
 
-export default Recipe;
+export default Recipe

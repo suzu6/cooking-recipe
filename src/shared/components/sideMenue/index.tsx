@@ -1,6 +1,6 @@
+import { AddBox, Folder } from '@mui/icons-material'
 import {
   Box,
-  Divider,
   Drawer,
   List,
   ListItem,
@@ -8,17 +8,16 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-} from '@mui/material';
-import * as React from 'react';
-import { AddBox, Folder } from '@mui/icons-material';
+} from '@mui/material'
+import * as React from 'react'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 type MenueItem = {
-  label: string;
-  href: string;
-  icon: JSX.Element;
-};
+  label: string
+  href: string
+  icon: JSX.Element
+}
 
 /**
  * ページリンク
@@ -34,12 +33,12 @@ const items: MenueItem[] = [
     href: '/recipes',
     icon: <Folder />,
   },
-];
+]
 
 export default function SideMenue() {
   return (
     <Drawer
-      variant="permanent"
+      variant='permanent'
       sx={{
         width: drawerWidth,
         flexShrink: 0,
@@ -51,7 +50,7 @@ export default function SideMenue() {
         <List>
           {items.map((item) => (
             <ListItem key={item.label} disablePadding>
-              <ListItemButton component="a" href={item.href}>
+              <ListItemButton component='a' href={item.href}>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.label} />
               </ListItemButton>
@@ -60,5 +59,5 @@ export default function SideMenue() {
         </List>
       </Box>
     </Drawer>
-  );
+  )
 }
