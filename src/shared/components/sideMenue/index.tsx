@@ -10,14 +10,13 @@ import {
   Toolbar,
 } from '@mui/material';
 import * as React from 'react';
-import style from './Sidebar.module.css';
 import { AddBox, Folder } from '@mui/icons-material';
 
 const drawerWidth = 240;
 
 type MenueItem = {
   label: string;
-  url: string;
+  href: string;
   icon: JSX.Element;
 };
 
@@ -27,12 +26,12 @@ type MenueItem = {
 const items: MenueItem[] = [
   {
     label: 'Create Recipe',
-    url: '/recipes/create',
+    href: '/recipes/create',
     icon: <AddBox />,
   },
   {
     label: 'Recipe List',
-    url: '/recipes',
+    href: '/recipes',
     icon: <Folder />,
   },
 ];
@@ -52,7 +51,7 @@ export default function SideMenue() {
         <List>
           {items.map((item) => (
             <ListItem key={item.label} disablePadding>
-              <ListItemButton>
+              <ListItemButton component="a" href={item.href}>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.label} />
               </ListItemButton>
